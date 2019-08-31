@@ -1,12 +1,67 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const questions = [
+  {id: "0", previous: 1, next: 1, question:"primer"},
+  {id: "1", previous: 1, next: 2, question:"What is the meaning of life?"},
+  {id: "2", previous: 1, next: 3, question:"What is my name?"},
+  {id: "3", previous: 2, next: 1, question:"Do you seek the grail?"}
+]
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class Wizard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {current: questions[1]};
+
+    // This binding is necessary to make `this` work in the callback
+    this.nextQuestion = this.nextQuestion.bind(this);
+    this.previousQuestion = this.previousQuestion.bind(this);
+  }
+
+  getQuestion(id) {
+    return questions[id];
+  }
+
+  previousQuestion() {
+    this.setState((state, props) => ({
+      current: this.getQuestion(state.current.previous)
+    }));
+  }
+
+  nextQuestion() {
+    this.setState((state, props) => ({
+      current: this.getQuestion(state.current.next)
+    }));
+  }
+
+  render() {
+    return (
+      <div className="wizard">
+        <h1>Wizard - Project Kickoff</h1>
+        <div className="question">
+          <p>question: {this.state.current.id}</p>
+          <p>{this.state.current.question}</p>
+        </div>
+        <div className="answer">
+          <textarea></textarea>
+        </div>
+        <div className="navigation">
+          <button onClick={this.previousQuestion}>
+            Previous
+          </button>
+
+          <button onClick={this.nextQuestion}>
+            Next
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Wizard />,
+  document.getElementById('root')
+);
+
