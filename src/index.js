@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// for all pages
+const keyPage = 'wizpage';
+const keyQuiz = 'wizquiz';
+const pagesCandy = ['', 'candy1', 'candy2'];
+const pagesKickoff = ['', 'kickoff1', 'kickoff2'];
+
 class QuizType extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +53,7 @@ class Candy1 extends React.Component {
   render() {
     return (
       <div>
-        <p>You have selected: Snickers</p>
+        <p>You have selected: M&Ms</p>
         <div>
         </div>
       </div>
@@ -67,19 +73,11 @@ class Kickoff1 extends React.Component {
   }
 }
 
-class Wizard extends React.Component {
+class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      quiztype: '',
-      page: ''
-    };
-
-    this.getNextPage = this.getNextPage.bind(this);
+    this.getContent = this.getContent.bind(this);
     this.handleQuizType = this.handleQuizType.bind(this);
-    this.handleHome = this.handleHome.bind(this);
-    this.handlePrevious = this.handlePrevious.bind(this);
-    this.handleNext = this.handleNext.bind(this);
   }
 
   handleQuizType(event) {
@@ -87,61 +85,87 @@ class Wizard extends React.Component {
     this.setState({quiztype: event.target.value});
   }
 
-  handleHome() {
-    console.log('home');
-    this.setState({page: 'home'});
-  }
+  getContent() {
+    console.log(this.props.page);
 
-  handlePrevious() {
-    console.log('previous');
-    this.setState({page: 'candy1'});
-  }
-
-  handleNext() {
-    console.log('next');
-    this.setState({page: 'kickoff1'});
-  }
-
-  getNextPage() {
-    console.log(this.state.page);
-    if (this.state.page === 'candy1') {
+    if (this.props.page === 'candy1') {
       return (
         <Candy1 />
       );
     }
 
-    if (this.state.page === 'kickoff1') {
+    if (this.props.page === 'kickoff1') {
       return (
         <Kickoff1 />
       );
     }
 
     // default
-    // return (
-    //   <QuizType quiztype={this.state.quiztype} 
-    //     onQuizChange={this.handleQuizType} />
-    // );
+    return (
+      <QuizType quiztype={this.state.quiztype} 
+        onQuizChange={this.handleQuizType} />
+    );
   }
-  
-  // if (this.state.page === 'candy1') {
-  //   <Candy1 />
-  // }
-  
-  // if (this.state.page === 'kickoff1') {
-  //   <Kickoff1 />
-  // }
-
 
   render() {
-
-
     return (
-      <div className='wizard'>
+      <div className='content'>
+          {this.getContent()}
+      </div>
+    );
+  }
+}
+
+class NavPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: localStorage.getItem( keyPage ) || '',
+      quiz: localStorage.getItem( keyQuiz ) || 'candy'
+    };
+
+    this.handleHome = this.handleHome.bind(this);
+    this.handlePrevious = this.handlePrevious.bind(this);
+    this.handleNext = this.handleNext.bind(this);
+    this.setPage = this.setPage.bind(this);
+    this.setQuiz = this.setQuiz.bind(this);
+  }
+
+  handleHome() {
+    console.log('home');
+    this.setQuiz('');
+    this.setPage('');
+  }
+
+  handlePrevious() {
+    console.log('previous');
+    this.setPage('candy1');
+  }
+
+  handleNext() {
+    console.log('next');
+    this.setPage('kickoff1');
+  }
+
+  setQuiz(quiz) {
+    this.setState({quiz: quiz});
+    localStorage.setItem(keyQuiz, quiz);
+  }
+
+  setPage(page) {
+    this.setState({page: page});
+    localStorage.setItem(keyPage, page);
+  }
+
+  render() {
+    const content = <Content page={this.state.page} />;
+    return (
+      <div className='navpage'>
         <h1>Wizard Demo</h1>
         <h2>The Wizard is a tool to help teams facilitate the right conversations</h2>
 
         <form>
-          {this.getNextPage()}
+          <div id="content">{content}</div>
 
           <br />          
           <button onClick={this.handleHome}>Home</button>
@@ -153,7 +177,8 @@ class Wizard extends React.Component {
   }
 }
 
+
 ReactDOM.render(
-  <Wizard />,
+  <NavPage />,
   document.getElementById('root')
 );
