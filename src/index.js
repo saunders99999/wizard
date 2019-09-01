@@ -2,34 +2,82 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Welcolm from './Welcolm.js';
+class QuizType extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
+  handleChange(event) {
+    this.props.onQuizChange(event);
+  }
 
-// import Q1 from './q1.js';
-// import Q2 from './q2.js';
-// const questions = [
-//   {id: "0", previous: 1, next: 1, question:"primer"},
-//   {id: "1", previous: 1, next: 2, question:"What is the meaning of life?"},
-//   {id: "2", previous: 1, next: 3, question:"What is my name?"},
-//   {id: "3", previous: 2, next: 1, question:"Do you seek the grail?"}
-// ];
+  render() {
+    return (
+      <div>
+        <p>Select a Wizard Type</p>
+        <div>
+          <label>
+            Candy
+            <input 
+              type="radio" 
+              name="quiztype" 
+              value="candy" 
+              checked={this.props.quiztype === 'candy'}
+              onChange={this.handleChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Kickoff
+            <input 
+              type="radio" 
+              name="quiztype" 
+              value="kickoff" 
+              checked={this.props.quiztype === 'kickoff'}
+              onChange={this.handleChange} />
+          </label>
+        </div>
+      </div>
+    );
+  }
+}
 
 class Wizard extends React.Component {
   constructor(props) {
     super(props);
-  }
-    // this.state = {current: questions[1]};
+    this.state = {
+      quiztype: '',
+      value: ''
+    };
 
-    // This binding is necessary to make `this` work in the callback
-    // this.nextQuestion = this.nextQuestion.bind(this);
-    // this.previousQuestion = this.previousQuestion.bind(this);
+    this.handleQuizType = this.handleQuizType.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleQuizType(event) {
+    console.log('event value', event.target.value);
+    this.setState({quiztype: event.target.value});
+  }
+
+  handleSubmit(event) {
+    console.log('submit');
+    event.preventDefault();
+    // this.setState({value: event.target.value});
+  }
 
   render() {
     return (
-      <div className="wizard">
-        <h1>Project Kickoff</h1>
-        <Welcolm />
-        
+      <div>
+        <h1>Wizard Demo</h1>
+        <h2>The Wizard is a tool to help teams facilitate the right conversations</h2>
+
+        <form onSubmit={this.handleSubmit}>
+          <QuizType quiztype={this.state.quiztype}  
+                    onQuizChange={this.handleQuizType} />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
   }
@@ -39,45 +87,3 @@ ReactDOM.render(
   <Wizard />,
   document.getElementById('root')
 );
-  // getQuestion(id) {
-  //   return questions[id];
-  // }
-
-  // previousQuestion() {
-  //   this.setState((state, props) => ({
-  //     current: this.getQuestion(state.current.previous)
-  //   }));
-  // }
-
-  // nextQuestion() {
-  //   this.setState((state, props) => ({
-  //     current: this.getQuestion(state.current.next)
-  //   }));
-  // }
-
-  // render() {
-  //   return (
-  //     <div className="wizard">
-  //       <h1>Wizard - Project Kickoff</h1>
-  //       <div className="question">
-  //         <p>question: {this.state.current.id}</p>
-  //         <p>{this.state.current.question}</p>
-  //       </div>
-  //       <div className="answer">
-  //         <textarea></textarea>
-  //       </div>
-  //       <div className="navigation">
-  //         <button onClick={this.previousQuestion}>
-  //           Previous
-  //         </button>
-
-  //         <button onClick={this.nextQuestion}>
-  //           Next
-  //         </button>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-
-
