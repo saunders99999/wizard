@@ -7,7 +7,7 @@ const keyIndex = 'wizindex';
 const keyPage = 'wizpage';
 const keyQuiz = 'wizquiz';
 const pagesCandy = ['', 'Candy1', 'Candy2'];
-const pagesKickoff = ['', 'Kickoff1', 'Kickoff2'];
+const pagesKickoff = ['', 'Kickoff1', 'Kickoff2','Kickoff3', 'Kickoff4','Kickoff5'];
 
 class QuizType extends React.Component {
   constructor(props) {
@@ -151,7 +151,8 @@ class Kickoff1 extends React.Component {
   render() {
     return (
       <div>
-        <p>You have selected: Kickoff1</p>
+        <h2>NGO Identify</h2>
+        <p>Who are you as an NGO ?</p>
         <div>
         </div>
       </div>
@@ -163,13 +164,53 @@ class Kickoff2 extends React.Component {
   render() {
     return (
       <div>
-        <p>You have selected: Kickoff2</p>
+        <h2>Software Automation</h2>
+        <p>What can you gain with technology?</p>
         <div>
         </div>
       </div>
     );
   }
 }
+
+class Kickoff3 extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>BUSINESS VALUE</h2>
+        <p>What new opportunities will you gain?</p>
+        <div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class Kickoff4 extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>TRUE COST OF OWNERSHIP</h2>
+        <p>What are the anticipated costs of the software ownership?</p>
+        <div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class Kickoff5 extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>THANK YOU FOR VISITING THE LITTLE BOBBY TABLES PRESENTATION!!!</h2>
+        <div>
+        </div>
+      </div>
+    );
+  }
+}
+
 
 class App extends React.Component {
   constructor(props) {
@@ -218,6 +259,25 @@ class App extends React.Component {
         <Kickoff2 />
       );
     }
+
+    if (this.state.page === 'Kickoff3') {
+      return(
+        <Kickoff3 />
+      );
+    }
+
+    if (this.state.page === 'Kickoff4') {
+      return(
+        <Kickoff4 />
+      );
+    }
+
+    if (this.state.page === 'Kickoff5') {
+      return(
+        <Kickoff5 />
+      );
+    }
+
 
     // default
     return (
