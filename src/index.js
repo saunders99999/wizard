@@ -6,9 +6,9 @@ import './index.css';
 const keyIndex = 'wizindex';
 const keyPage = 'wizpage';
 const keyQuiz = 'wizquiz';
-const pagesCandy = ['', 'Candy1', 'Candy2', 'Kickoff5'];
-const pagesCandy2 = ['', 'Candy2a', 'Kickoff5'];
-const pagesKickoff = ['', 'Kickoff1', 'Kickoff2','Kickoff3', 'Kickoff4','Kickoff5'];
+const pagesCandy = ['', 'Candy1a', 'Candy1b', 'Finish'];
+const pagesCandy2 = ['', 'Candy2', 'Finish'];
+const pagesKickoff = ['', 'Kickoff1', 'Kickoff2','Kickoff3', 'Kickoff4','Finish'];
 
 class QuizType extends React.Component {
   constructor(props) {
@@ -62,102 +62,134 @@ class QuizType extends React.Component {
   }
 }
 
-class Candy1 extends React.Component {
+class Candy1a extends React.Component {
   render() {
     return (
 <div>
     <p>
-        <label>What kind of candy do you like most?</label>
+        <label>Do you like candy?</label>
     </p>
     <div>
       <label>
-        Milk
-        <input type="radio" name="candyColor" value="milk"/>
+        Yes
+        <input type="radio" name="candyColor" value="yes"/>
       </label>
     </div>
     <div>
       <label>
-        Sugar
-        <input type="radio" name="candyColor" value="sugar"/>
-      </label>
-    </div>
-    <div>
-      <label>
-        Dark
-        <input type="radio" name="candyColor" value="dark"/>
+        No
+        <input type="radio" name="candyColor" value="no"/>
       </label>
     </div>
     <p></p>
     <p>
-        <label>What Candy bar size do you prefer?</label>
+      <label>How often do you buy candy ?</label>
     </p>
     <div>
       <label>
-        Bar
-        <input type="radio" name="candyShape" value="bar"/>
+        Daily
+        <input type="radio" name="lastBought" value="daily" />
       </label>
     </div>
     <div>
       <label>
-        Nuggets
-        <input type="radio" name="candyShape" value="nuggets"/>
+        Weekly
+        <input type="radio" name="lastBought" value="weekly" />
       </label>
     </div>
     <div>
       <label>
-        Fun Size
-        <input type="radio" name="candyShape" value="funsize"/>
+        Monthly
+        <input type="radio" name="lastBought" value="monthly" />
+      </label>
+    </div>
+    <div>
+      <label>
+        Around holidays
+        <input type="radio" name="lastBought" value="holidays" />
+      </label>
+    </div>
+    <p>
+        <label>What time of the day do you eat candy?</label>
+    </p>
+    <div>
+      <label>
+        Morning
+        <input type="radio" name="candyTime" value="morning"/>
+      </label>
+    </div>
+    <div>
+      <label>
+        Afternoon
+        <input type="radio" name="candyTime" value="afternoon"/>
+      </label>
+    </div>
+    <div>
+      <label>
+        Night
+        <input type="radio" name="candyTime" value="night"/>
+      </label>
+    </div>
+    <div>
+      <label>
+        Any Time!
+        <input type="radio" name="candyTime" value="any"/>
       </label>
     </div>
     <p></p>
     <p>
-      <label>Do you prefer candy with or without a filling?</label>
+      <label>What color wrapper do you like?</label>
     </p>
     <div>
       <label>
-        Filled
-        <input type="radio" name="candyFilling" value="filled"/>
+        Black
+        <input type="radio" name="candyWrappers" value="black"/>
       </label>
     </div>
     <div>
       <label>
-        Unfilled
-        <input type="radio" name="candyFilling" value="unfilled"/>
+        Other colors
+        <input type="radio" name="candyWrappers" value="other"/>
+      </label>
+    </div>
+    <div>
+      <label>
+        White
+        <input type="radio" name="candyWrappers" value="white"/>
       </label>
     </div>
     <p></p>
     <p>
-      <label>When you purchase candy which of the following is most important to you?</label>
+      <label>Where do you typically purchase your candy ?</label>
     </p>
     <div>
       <label>
-        Shape
-        <input type="radio" name="candyPref" value="shape"/>
+        Target/Walmart/Super stores
+        <input type="radio" name="store" value="walmart"/>
       </label>
     </div>
     <div>
       <label>
-        Color
-        <input type="radio" name="candyPref" value="color"/>
+        Candy Store
+        <input type="radio" name="store" value="candystore"/>
       </label>
     </div>
     <div>
       <label>
-        Filling
-        <input type="radio" name="candyPref" value="filling"/>
+        Amazon and other online stores
+        <input type="radio" name="store" value="online"/>
       </label>
     </div>
-    <p></p>
 </div>
     );
   }
 }
 
-class Candy2 extends React.Component {
+class Candy1b extends React.Component {
   render() {
     return (
       <div>
-        <p>You have selected: Candy Box #3</p>
+        <p>You have selected: Candy Box #3, ENJOY YOUR CANDY!!!</p>
         <div>
         </div>
       </div>
@@ -165,7 +197,7 @@ class Candy2 extends React.Component {
   }
 }
 
-class Candy2a extends React.Component {
+class Candy2 extends React.Component {
   render() {
     return (
       <div>
@@ -619,7 +651,7 @@ class Kickoff4 extends React.Component {
   }
 }
 
-class Kickoff5 extends React.Component {
+class Finish extends React.Component {
   render() {
     return (
       <div>
@@ -638,7 +670,7 @@ class App extends React.Component {
     this.state = {
       index: localStorage.getItem( keyIndex ) || 0,
       page: localStorage.getItem( keyPage ) || '',
-      quiz: localStorage.getItem( keyQuiz ) || 'candy1'
+      quiz: localStorage.getItem( keyQuiz ) || 'Candy1a'
     };
 
     this.getContent = this.getContent.bind(this);
@@ -656,21 +688,21 @@ class App extends React.Component {
   }
 
   getContent() {
-    if (this.state.page === 'Candy1') {
+    if (this.state.page === 'Candy1a') {
       return(
-        <Candy1 />
+        <Candy1a />
+      );
+    }
+
+    if (this.state.page === 'Candy1b') {
+      return(
+        <Candy1b />
       );
     }
 
     if (this.state.page === 'Candy2') {
       return(
         <Candy2 />
-      );
-    }
-
-    if (this.state.page === 'Candy2a') {
-      return(
-        <Candy2a />
       );
     }
 
@@ -698,9 +730,9 @@ class App extends React.Component {
       );
     }
 
-    if (this.state.page === 'Kickoff5') {
+    if (this.state.page === 'Finish') {
       return(
-        <Kickoff5 />
+        <Finish />
       );
     }
 
