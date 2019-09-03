@@ -6,7 +6,8 @@ import './index.css';
 const keyIndex = 'wizindex';
 const keyPage = 'wizpage';
 const keyQuiz = 'wizquiz';
-const pagesCandy = ['', 'Candy1', 'Candy2', 'Candy2a'];
+const pagesCandy = ['', 'Candy1', 'Candy2', 'Kickoff5'];
+const pagesCandy2 = ['', 'Candy2a', 'Kickoff5'];
 const pagesKickoff = ['', 'Kickoff1', 'Kickoff2','Kickoff3', 'Kickoff4','Kickoff5'];
 
 class QuizType extends React.Component {
@@ -25,12 +26,23 @@ class QuizType extends React.Component {
         <p>Select a Wizard Type</p>
         <div>
           <label>
-            Candy
+            Candy1
             <input 
               type="radio" 
               name="quiztype" 
-              value="candy" 
-              checked={this.props.quiz === 'candy'}
+              value="candy1" 
+              checked={this.props.quiz === 'candy1'}
+              onChange={this.handleChange} />
+          </label>
+        </div>
+        <div>
+          <label>
+            Candy2
+            <input 
+              type="radio" 
+              name="quiztype" 
+              value="candy2" 
+              checked={this.props.quiz === 'candy2'}
               onChange={this.handleChange} />
           </label>
         </div>
@@ -626,7 +638,7 @@ class App extends React.Component {
     this.state = {
       index: localStorage.getItem( keyIndex ) || 0,
       page: localStorage.getItem( keyPage ) || '',
-      quiz: localStorage.getItem( keyQuiz ) || 'candy'
+      quiz: localStorage.getItem( keyQuiz ) || 'candy1'
     };
 
     this.getContent = this.getContent.bind(this);
@@ -718,13 +730,18 @@ class App extends React.Component {
   // ---------------------- nav buttons 
   handleHome() {
     this.setPageIndex(0, pagesCandy[0]);
-    this.setQuiz('');
+    this.setQuiz('candy1');
   }
 
   handlePrevious() {
-    if (this.state.quiz === 'candy' && this.state.index > 0) {
+    if (this.state.quiz === 'candy1' && this.state.index > 0) {
       const newIndex = Number(this.state.index) - 1;
       this.setPageIndex( newIndex, pagesCandy[newIndex]);
+    }
+
+    if (this.state.quiz === 'candy2' && this.state.index > 0) {
+      const newIndex = Number(this.state.index) - 1;
+      this.setPageIndex( newIndex, pagesCandy2[newIndex]);
     }
 
     if (this.state.quiz === 'kickoff' && this.state.index > 0) {
@@ -734,9 +751,14 @@ class App extends React.Component {
   }
 
   handleNext() {
-    if (this.state.quiz === 'candy' && this.state.index < (pagesCandy.length - 1)) {
+    if (this.state.quiz === 'candy1' && this.state.index < (pagesCandy.length - 1)) {
       const newIndex = Number(this.state.index) + 1;
       this.setPageIndex( newIndex, pagesCandy[newIndex]);
+    }
+
+    if (this.state.quiz === 'candy2' && this.state.index < (pagesCandy2.length - 1)) {
+      const newIndex = Number(this.state.index) + 1;
+      this.setPageIndex( newIndex, pagesCandy2[newIndex]);
     }
 
     if (this.state.quiz === 'kickoff' && this.state.index < (pagesKickoff.length - 1)) {
