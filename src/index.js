@@ -7,7 +7,7 @@ const keyIndex = 'wizindex';
 const keyPage = 'wizpage';
 const keyQuiz = 'wizquiz';
 const pagesCandy = ['', 'Candy1a', 'Candy1b', 'Finish'];
-const pagesCandy2 = ['', 'Candy2', 'Finish'];
+const pagesCandy2 = ['', 'Candy2a', 'Candy2b', 'Finish'];
 const pagesKickoff = ['', 'Kickoff1', 'Kickoff2','Kickoff3', 'Kickoff4','Finish'];
 
 class QuizType extends React.Component {
@@ -197,7 +197,7 @@ class Candy1b extends React.Component {
   }
 }
 
-class Candy2 extends React.Component {
+class Candy2a extends React.Component {
   render() {
     return (
       <div>
@@ -599,14 +599,52 @@ class Candy2 extends React.Component {
   }
 }
 
+class Candy2b extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>You have selected: Candy Box #3, ENJOY YOUR CANDY!!!</p>
+        <div>
+        </div>
+      </div>
+    );
+  }
+}
+
 class Kickoff1 extends React.Component {
   render() {
     return (
       <div>
-        <h2>NGO Identify</h2>
-        <p>Who are you as an NGO ?</p>
-        <div>
-        </div>
+      <h2>NGO Identify</h2>
+      <h3>Who are you as an NGO ?</h3>
+      <p>
+          <label>
+            Do you consider yourself a small, medium or large size business? 
+            <p></p>
+            <input type="text" id="name" placeholder="i.e. number of employees and overall revenue or client size"/>
+          </label>
+      </p>
+      <p>
+          <label>
+            What defines you as an NGO?  
+            <p></p>
+            <input type="text" id="name" placeholder="Whats your mission?"/>
+          </label>
+      </p>
+      <p>
+          <label>
+            What region(s) do you work in?   
+            <p></p>
+            <input type="text" id="name" placeholder="East coast/ West coast/ International etc."/>
+          </label>
+      </p>
+      <p>
+          <label>
+            What are the key services you provide?    
+            <p></p>
+            <input type="text" id="name" placeholder="i.e. housing for underprivileged/education assistance/etc"/>
+          </label>
+      </p>        
       </div>
     );
   }
@@ -617,9 +655,28 @@ class Kickoff2 extends React.Component {
     return (
       <div>
         <h2>Software Automation</h2>
-        <p>What can you gain with technology?</p>
-        <div>
-        </div>
+        <h3>What can you gain with technology?</h3>
+        <p>
+            <label>
+              Name some business processes that can be made easier? 
+              <p></p>
+              <input type="text" id="name" placeholder="Are these repeatable? What users interact with these processes?"/>
+            </label>
+        </p>
+        <p>
+            <label>
+              Name some spreadsheets or data you maintain that can be automated  
+              <p></p>
+              <input type="text" id="name" placeholder="Who uses these spreadsheets and how?"/>
+            </label>
+        </p>
+        <p>
+            <label>
+              Who can benefit if these processes are automated?  
+              <p></p>
+              <input type="text" id="name" placeholder="Clients/Employees/etc"/>
+            </label>
+        </p>
       </div>
     );
   }
@@ -630,9 +687,28 @@ class Kickoff3 extends React.Component {
     return (
       <div>
         <h2>BUSINESS VALUE</h2>
-        <p>What new opportunities will you gain?</p>
-        <div>
-        </div>
+        <h3>What new opportunities will you gain?</h3>
+        <p>
+            <label>
+              Describe briefly what would you like the new system to do? 
+              <p></p>
+              <input type="text" id="name" placeholder="collect contact info/payments/login etc"/>
+            </label>
+        </p>
+        <p>
+            <label>
+              Overall, how is this good for business? 
+              <p></p>
+              <input type="text" id="name" placeholder="enhanced services, new business opportunities, cheaper costs…"/>
+            </label>
+        </p>
+        <p>
+            <label>
+              Are there any metrics to consider the new functionality complete? 
+              <p></p>
+              <input type="text" id="name" placeholder="how will you know the effort is a success"/>
+            </label>
+        </p>
       </div>
     );
   }
@@ -643,9 +719,28 @@ class Kickoff4 extends React.Component {
     return (
       <div>
         <h2>TRUE COST OF OWNERSHIP</h2>
-        <p>What are the anticipated costs of the software ownership?</p>
-        <div>
-        </div>
+        <h3>What are the anticipated costs of the software ownership?</h3>
+        <p>
+            <label>
+              Should the tech team focus more initially towards budget or on functional flexibility? 
+              <p></p>
+              <input type="text" id="name" placeholder="often, features sound nice until the associated costs at hand-off are fully understood"/>
+            </label>
+        </p>
+        <p>
+            <label>
+              Do you have a preferred software licensing model? 
+              <p></p>
+              <input type="text" id="name" placeholder="user based, monthly costs, one time purchase, support…"/>
+            </label>
+        </p>
+        <p>
+            <label>
+              Comparing the purchase of technology to a car, what size of car is this purchase? 
+              <p></p>
+              <input type="text" id="name" placeholder="small/medium/large car/SUV/truck/minivan - why?"/>
+            </label>
+        </p>
       </div>
     );
   }
@@ -700,9 +795,15 @@ class App extends React.Component {
       );
     }
 
-    if (this.state.page === 'Candy2') {
+    if (this.state.page === 'Candy2a') {
       return(
-        <Candy2 />
+        <Candy2a />
+      );
+    }
+
+    if (this.state.page === 'Candy2b') {
+      return(
+        <Candy2b />
       );
     }
 
