@@ -867,7 +867,7 @@ class App extends React.Component {
     return (
       <div className='navpage'>
         <h1>Wizard Demo</h1>
-        <h2>The Wizard is a tool to help teams facilitate the right conversations</h2>
+        <h2>The Wizard is a tool that helps teams facilitate the right conversations</h2>
 
         <div>
           <div id="content">{this.getContent()}</div>
