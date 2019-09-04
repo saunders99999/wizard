@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 // for all pages
+// @TODO, fix keys to object
+const keyCandy1 = 'wizcandy1';
+const keyCandy2 = 'wizcandy2';
 const keyIndex = 'wizindex';
 const keyPage = 'wizpage';
 const keyQuiz = 'wizquiz';
@@ -72,13 +75,13 @@ class Candy1a extends React.Component {
     <div>
       <label>
         Yes
-        <input type="radio" name="candyColor" value="yes"/>
+        <input type="radio" name="likeCandy" value="yes"/>
       </label>
     </div>
     <div>
       <label>
         No
-        <input type="radio" name="candyColor" value="no"/>
+        <input type="radio" name="likeCandy" value="no"/>
       </label>
     </div>
     <p></p>
@@ -189,7 +192,7 @@ class Candy1b extends React.Component {
   render() {
     return (
       <div>
-        <p>You have selected: Candy Box #3, ENJOY YOUR CANDY!!!</p>
+        <p>{this.props.msg}</p>
         <div>
         </div>
       </div>
@@ -603,7 +606,7 @@ class Candy2b extends React.Component {
   render() {
     return (
       <div>
-        <p>You have selected: Candy Box #3, ENJOY YOUR CANDY!!!</p>
+        <p>{this.props.msg}</p>
         <div>
         </div>
       </div>
@@ -763,16 +766,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      candy1msg: localStorage.getItem( keyCandy1 ) || '',
+      candy2msg: localStorage.getItem( keyCandy2 ) || '',
       index: localStorage.getItem( keyIndex ) || 0,
       page: localStorage.getItem( keyPage ) || '',
       quiz: localStorage.getItem( keyQuiz ) || 'Candy1a'
     };
 
     this.getContent = this.getContent.bind(this);
+    this.getRadioButtonValue = this.getRadioButtonValue.bind(this);
     this.handleQuizType = this.handleQuizType.bind(this);
     this.handleHome = this.handleHome.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.setCandy1 = this.setCandy1.bind(this);
+    this.setCandy2 = this.setCandy2.bind(this);
     this.setPageIndex = this.setPageIndex.bind(this);
     this.setQuiz = this.setQuiz.bind(this);
   }
@@ -791,7 +799,7 @@ class App extends React.Component {
 
     if (this.state.page === 'Candy1b') {
       return(
-        <Candy1b />
+        <Candy1b msg={this.state.candy1msg}/>
       );
     }
 
@@ -803,7 +811,7 @@ class App extends React.Component {
 
     if (this.state.page === 'Candy2b') {
       return(
-        <Candy2b />
+        <Candy2b msg={this.state.candy1msg}/>
       );
     }
 
@@ -847,6 +855,17 @@ class App extends React.Component {
 
   // ---------------------- utility
   // haven't found the best way for React reseting state on page re-loads
+  // @TODO consolidate these methods
+  setCandy1(msg) {
+    this.setState({candy1msg: msg});
+    localStorage.setItem(keyCandy1, msg);
+  }
+
+  setCandy2(msg) {
+    this.setState({candy2msg: msg});
+    localStorage.setItem(keyCandy2, msg);
+  }
+
   setQuiz(quiz) {
     console.log(`quiz: ${quiz}`);
     this.setState({quiz: quiz});
@@ -883,9 +902,32 @@ class App extends React.Component {
     }
   }
 
+  getRadioButtonValue(radioName) {
+    const radios = document.getElementsByName(radioName);
+
+    // @TODO do the better way
+    // const result = inventory.find( fruit => fruit.name === 'cherries' );
+    // console.log(result) // { name: 'cherries', quantity: 5 }
+    let retValue = '';
+    radios.forEach((element) => {
+      if (element.checked) {
+        retValue = element.value;
+      }
+    });
+    return retValue;
+  }
+
   handleNext() {
-    if (this.state.quiz === 'candy1' && this.state.index < (pagesCandy.length - 1)) {
+    if (this.state.quiz === 'candy1' && this.state.index < (pagesCandy.length - 1)) {      
       const newIndex = Number(this.state.index) + 1;
+      if (this.state.index === 1) {
+        if (this.getRadioButtonValue('likeCandy') === 'yes') {
+          this.setCandy1('You have selected: Candy Box #3, ENJOY YOUR CANDY!!!');
+        } else {
+          this.setCandy1('No CANDY FOR YOU!!!');
+        }
+      }
+
       this.setPageIndex( newIndex, pagesCandy[newIndex]);
     }
 
