@@ -332,14 +332,6 @@ class Candy2a extends React.Component {
     <p></p>
         <p>
           <label>
-            Can you share a happy candy memory?
-            <p></p>
-            <input type="text" id="name" placeholder="with who, special location, life occastion, ..."/>
-          </label>
-        </p>
-    <p></p>
-        <p>
-          <label>
             What is your favorite candy of all time?
             <p></p>
             <input type="text" id="name" placeholder="the one you dream about..."/>
@@ -375,30 +367,8 @@ class Candy2b extends React.Component {
         </div>
         <div>
           <label>
-            Either
-            <input type="radio" name="preference" value="either" />
-          </label>
-        </div>
-      <p></p>
-        <p>
-          <label>How sugary do you like your candy?</label>
-        </p>
-        <div>
-          <label>
-            Tons of sugar
-            <input type="radio" name="sugary" value="sugerhigh" />
-          </label>
-        </div>
-        <div>
-          <label>
-            Moderate
-            <input type="radio" name="sugary" value="sugermedium" />
-          </label>
-        </div>
-        <div>
-          <label>
-            Light on the sugar
-            <input type="radio" name="sugary" value="sugerlow" />
+            All
+            <input type="radio" name="preference" value="all" />
           </label>
         </div>
       <p></p>
@@ -407,93 +377,88 @@ class Candy2b extends React.Component {
         </p>
         <div>
           <label>
-            Crunchy
-            <input type="radio" name="type" value="crunchy" />
-          </label>
-        </div>
-        <div>
-          <label>
             Chewy
-            <input type="radio" name="type" value="chewy" />
+            <input type="radio" name="texture" value="chewy" />
           </label>
         </div>
         <div>
           <label>
-            Fluffy
-            <input type="radio" name="type" value="fluffy" />
+            Smooth
+            <input type="radio" name="texture" value="smooth" />
           </label>
         </div>
         <div>
           <label>
-            Melty
-            <input type="radio" name="type" value="melty" />
+            Crunchy
+            <input type="radio" name="texture" value="crunchy" />
           </label>
         </div>
         <div>
           <label>
-            Sticky
-            <input type="radio" name="type" value="sticky" />
+            No Preference
+            <input type="radio" name="texture" value="nopref" />
+          </label>
+        </div>
+    <p></p>
+        <p>
+          <label>What kind of fillings do you prefer?</label>
+        </p>
+        <div>
+          <label>
+            Caramel
+            <input type="radio" name="filling" value="caramel" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Toffee
+            <input type="radio" name="filling" value="toffee" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Creamy
+            <input type="radio" name="filling" value="creamy" />
+          </label>
+        </div>
+        <div>
+          <label>
+            No Preference
+            <input type="radio" name="filling" value="nopref" />
+          </label>
+        </div>
+        <p></p>
+        <p>
+          <label>Which of these do you like as a chocolate alternative?</label>
+        </p>
+        <div>
+          <label>
+            Licorice (i.e. Twizzlers)
+            <input type="radio" name="alt" value="licorice" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Gummy Bears
+            <input type="radio" name="alt" value="gummy" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Gumballs
+            <input type="radio" name="alt" value="gumballs" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Sours
+            <input type="radio" name="alt" value="sours" />
           </label>
         </div>
         <div>
           <label>
             None
-            <input type="radio" name="type" value="none" />
-          </label>
-        </div>
-    <p></p>
-        <p>
-          <label>Do you like peanut butter?</label>
-        </p>
-        <div>
-          <label>
-            Yes
-            <input type="radio" name="peanutbutter" value="yew" />
-          </label>
-        </div>
-        <div>
-          <label>
-            No
-            <input type="radio" name="peanutbutter" value="no" />
-          </label>
-        </div>
-      <p></p>
-        <p>
-          <label>Please rank these candies in order of preference?</label>
-        </p>
-        <div>
-          <label>
-            <p></p>
-            Skittles
-            <input type="text" name="rankskittles" placeholder="1,2,3,... or 0-do not like" />
-          </label>
-        </div>
-        <div>
-          <label>
-            <p></p>
-            Jelly Belly's
-            <input type="text" name="rankjb" placeholder="1,2,3,... or 0-do not like" />
-          </label>
-        </div>
-        <div>
-          <label>
-            <p></p>
-            m&amp;m's
-            <input type="text" name="rankmm" placeholder="1,2,3,... or 0-do not like" />
-          </label>
-        </div>
-        <div>
-          <label>
-            <p></p>
-            Gummy Bears
-            <input type="text" name="rankgummy" placeholder="1,2,3,... or 0-do not like" />
-          </label>
-        </div>
-        <div>
-          <label>
-            <p></p>
-            Sours
-            <input type="text" name="ranksours" placeholder="1,2,3,... or 0-do not like" />
+            <input type="radio" name="alt" value="none" />
           </label>
         </div>
       <p></p>
@@ -514,420 +479,6 @@ class Candy2c extends React.Component {
     );
   }
 }
-
-// class Candy2a extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h2>Lets get to you know a bit!! </h2>
-//     <p></p>
-//         <div>
-//         <p>
-//           <label>
-//             Whats your name ?
-//             <p></p>
-//             <input type="text" id="name" placeholder="First Last"/>
-//           </label>
-//         </p>
-//         <p></p>
-//         <p>
-//           <label>What part of the world did you grow up in?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Asia
-//             <input type="radio" name="location" value="apac"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Europe
-//           </label>
-//           <input type="radio" name="location" value="eu"/>
-//         </div>
-//         <div>
-//           <label>
-//             North America
-//             <input type="radio" name="location" value="na"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             South America
-//             <input type="radio" name="location" value="sa"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Africa
-//             <input type="radio" name="location" value="af"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Australia
-//             <input type="radio" name="location" value="au"/>
-//           </label>
-//         </div>
-//         <p></p>
-
-//         <p>
-//           <label>Do you consider any dietary restrictions when purchasing candy? </label>
-//         </p>
-//         <div>
-//           <label>
-//             Yes
-//             <input type="radio" name="restrictions" value="yes"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             No
-//           <input type="radio" name="restrictions" value="no"/>
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>What kind of candy you like?</label>
-//         </p>
-//         <div>
-//           <label>
-//             White
-//             <input type="radio" name="shape" value="white"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Milk
-//           <input type="radio" name="shape" value="milk"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Dark
-//           <input type="radio" name="shape" value="dark"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Gum
-//             <input type="radio" name="shape" value="gum"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Hard
-//             <input type="radio" name="shape" value="hard"/>
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>Do you prefer a filling or unfilled?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Unfilled
-//             <input type="radio" name="candyFilling" value="unfilled"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             marshmellow
-//             <input type="radio" name="candyFilling" value="marshmellow"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             nougat
-//             <input type="radio" name="candyFilling" value="nougat"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             peanut butter
-//             <input type="radio" name="candyFilling" value="peanutbutter"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Other Filling
-//             <input type="radio" name="candyFilling" value="otherfilled"/>
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>Where do you typically purchase your candy ?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Target/Walmart/Super stores
-//             <input type="radio" name="store" value="walmart"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Candy Store
-//             <input type="radio" name="store" value="candystore"/>
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Amazon and other online stores
-//             <input type="radio" name="store" value="online"/>
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>How many candy do you eat weekly ?</label>
-//         </p>
-//         <div>
-//           <label>
-//             1          
-//             <input type="radio" name="count" value="1" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             2
-//             <input type="radio" name="count" value="2" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             3
-//             <input type="radio" name="count" value="3" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             4
-//             <input type="radio" name="count" value="4" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             5
-//             <input type="radio" name="count" value="5" />
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>Which of these candy textures is your favorite?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Crunchy
-//             <input type="radio" name="type" value="crunchy" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Chewy
-//             <input type="radio" name="type" value="chewy" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Fluffy
-//             <input type="radio" name="type" value="fluffy" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Melty
-//             <input type="radio" name="type" value="melty" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Sticky
-//             <input type="radio" name="type" value="sticky" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             None
-//             <input type="radio" name="type" value="none" />
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>How often do you buy candy ?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Daily
-//             <input type="radio" name="lastBought" value="daily" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Weekly
-//             <input type="radio" name="lastBought" value="weekly" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Monthly
-//             <input type="radio" name="lastBought" value="monthly" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Around holidays
-//             <input type="radio" name="lastBought" value="holidays" />
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>What other candy do you buy on a regular basis?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Skittles
-//             <input type="radio" name="regularBasis" value="skittles" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Jelly Belly's
-//             <input type="radio" name="regularBasis" value="jelly" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             m&amp;m's
-//             <input type="radio" name="regularBasis" value="m&amp;m" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Belgian
-//             <input type="radio" name="regularBasis" value="belgian" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Candy with liquor
-//             <input type="radio" name="regularBasis" value="liquor" />
-//           </label>
-//         </div>
-//       <p></p>
-//         <p>
-//           <label>Do you prefer any of these to chocolate?</label>
-//         </p>
-//         <div>
-//           <label>
-//             double dipped peanuts
-//             <input type="radio" name="bulk" value="peanuts" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             licorice
-//             <input type="radio" name="bulk" value="licorice" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             gummy bears
-//             <input type="radio" name="bulk" value="gummy" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             gumballs
-//             <input type="radio" name="bulk" value="gumballs" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             sours
-//             <input type="radio" name="bulk" value="sours" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             none
-//             <input type="radio" name="bulk" value="none" />
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>Do you more often buy cheap or expensive candy?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Cheap
-//             <input type="radio" name="quality" value="cheap" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Moderate
-//             <input type="radio" name="quality" value="moderate" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Expensive
-//             <input type="radio" name="quality" value="expensive" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             It depends how I feel
-//             <input type="radio" name="quality" value="varies" />
-//           </label>
-//         </div>
-//     <p></p>
-//         <p>
-//           <label>Are there any speciality candies you go out of your way to get?</label>
-//         </p>
-//         <div>
-//           <label>
-//             Yes
-//             <input type="radio" name="outOfYourWay" value="yes" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             No
-//             <input type="radio" name="outOfYourWay" value="no" />
-//           </label>
-//         </div>
-//         <div>
-//           <label>
-//             Sometimes
-//             <input type="radio" name="outOfYourWay" value="sometimes" />
-//           </label>
-//         </div>
-//         <p></p>
-//         <p>
-//           <label>
-//             What candy do you like that we haven’t asked about?
-//             <p></p>
-//             <input type="text" id="name" placeholder="First Last"/>
-//           </label>
-//         </p>
-//         <p></p>
-//       </div>
-//     </div>
-//     );
-//   }
-// }
-
-// class Candy2b extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <p>{this.props.msg}</p>
-//         <div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 class Kickoff1 extends React.Component {
   render() {
@@ -1087,6 +638,7 @@ class App extends React.Component {
       quiz: localStorage.getItem( keyQuiz ) || 'Candy1a'
     };
 
+    this.getCandyChoice2 = this.getCandyChoice2.bind(this);
     this.getContent = this.getContent.bind(this);
     this.getRadioButtonValue = this.getRadioButtonValue.bind(this);
     this.handleQuizType = this.handleQuizType.bind(this);
@@ -1237,12 +789,56 @@ class App extends React.Component {
     return retValue;
   }
 
+  // decisions Candy 1
+  // no like candy -> NO CANDY
+
+  // decisions Candy 2
+  // not Chocolate -> brew pop -> box 3
+  // no pref and no pref -> brew pop -> box 3
+	// crunchy and toffee -> crunchie -> box 5
+	// crunchy and not toffee -> fudge -> box 1
+	// caramel -> mars -> box 2
+	// smooth or creamy -> milky way -> box 4
+
+  getCandyChoice2() {
+    const pref = this.getRadioButtonValue('preference');
+    const texture = this.getRadioButtonValue('texture');
+    const filling = this.getRadioButtonValue('filling');
+
+    if (pref === 'nonchocolate' || (filling === 'nopref' && texture === 'nopref') ) {
+      // brew pops
+      return 'ENJOY YOUR CANDY!!!  You have selected: Candy Box #3';
+    }
+
+    if (texture === 'crunchy' && filling === 'toffee') {
+      // crunchy
+      return 'ENJOY YOUR CANDY!!!  You have selected: Candy Box #5';
+    }
+
+    if (texture === 'crunchy') {
+      // fudge
+      return 'ENJOY YOUR CANDY!!!  You have selected: Candy Box #1';
+    }
+
+    if (filling === 'caramel') {
+      // mars
+      return 'ENJOY YOUR CANDY!!!  You have selected: Candy Box #2';
+    }
+
+    if (texture === 'smooth' || filling === 'creamy') {
+      // milky way
+      return 'ENJOY YOUR CANDY!!!  You have selected: Candy Box #4';
+    }
+
+    return 'Answer more to get a treat!!!';
+  }
+
   handleNext() {
     if (this.state.quiz === 'candy1' && this.state.index < (pagesCandy.length - 1)) {      
       const newIndex = Number(this.state.index) + 1;
       if (this.state.index === 1) {
         if (this.getRadioButtonValue('likeCandy') === 'yes') {
-          this.setCandy1('You have selected: Candy Box #3, ENJOY YOUR CANDY!!!');
+          this.setCandy1('ENJOY YOUR CANDY!!!  You have selected: Candy Box #3');
         } else {
           this.setCandy1('No CANDY FOR YOU!!!');
         }
@@ -1254,11 +850,7 @@ class App extends React.Component {
     if (this.state.quiz === 'candy2' && this.state.index < (pagesCandy2.length - 1)) {
       const newIndex = Number(this.state.index) + 1;
       if (this.state.index === 2) {
-        if (this.getRadioButtonValue('likeCandy') === 'yes') {
-          this.setCandy2('Your candy choice is:');
-        } else {
-          this.setCandy2('ENJOY your candy!!!');
-        }
+        this.setCandy2( this.getCandyChoice2() );
       }
 
       this.setPageIndex( newIndex, pagesCandy2[newIndex]);
