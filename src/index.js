@@ -25,6 +25,7 @@ class QuizType extends React.Component {
 
   render() {
     return (
+    <div>
       <div>
         <p>Select a Wizard Type</p>
         <div>
@@ -63,6 +64,7 @@ class QuizType extends React.Component {
       </div>
       <div>
         <img src="Candy.png"/>
+      </div>
       </div>
     );
   }
