@@ -49,7 +49,6 @@ class QuizType extends React.Component {
               onChange={this.handleChange} />
           </label>
         </div>
-        <img src="Candy.png"/>
         <div>
           <label>
             Project Kickoff
@@ -61,6 +60,9 @@ class QuizType extends React.Component {
               onChange={this.handleChange} />
           </label>
         </div>
+      </div>
+      <div>
+        <img src="Candy.png"/>
       </div>
     );
   }
